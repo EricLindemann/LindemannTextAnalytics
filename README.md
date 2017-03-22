@@ -1,6 +1,7 @@
 # README
 
-##To install dependencies
+To install dependencies
+
 Things to install:
 
 Ruby (https://www.ruby-lang.org/en/)
@@ -13,5 +14,8 @@ cd into this folder and run
 
 .> rake db:create db:migrate
 
-##To start server
+
+
+To start server
+
 .> rails s
