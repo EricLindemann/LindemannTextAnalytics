@@ -5,7 +5,8 @@
     records: []
 
   render: ->
-    console.log @state.analyses
+    test = @state.analyses
+    console.log(test)
     React.DOM.div
       className: 'analyses'
       React.DOM.h1
