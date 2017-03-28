@@ -1,0 +1,16 @@
+import os
+
+temp = os.path.join('G:\\','Lindemanns2','LindemannTextAnalytics')
+os.chdir(temp)
+temp = os.getcwd()
+os.chdir("..")
+temp = os.getcwd()
+temp_path = os.path.join('.','LindemannTextAnalytics','InterprocessData')
+os.chdir(temp_path)
+temp = os.getcwd()
+temp_file = os.path.join(temp,'wordList1.txt')
+file1 = open(temp_file,'w')
+file1.write('word1\n')
+file1.write('word2\n')
+file1.write('word3\n')
+file1.close()
