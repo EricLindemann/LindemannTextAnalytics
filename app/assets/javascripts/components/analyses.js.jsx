@@ -6,7 +6,8 @@ class Analysis extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='analyses'>
+        <TopBar />
         <h1>
           {this.state.data}
         </h1>
