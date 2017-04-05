@@ -1,30 +1,17 @@
 // Place all the styles related to the Analyses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.topnav {
-    background-color: #333;
-    overflow: hidden;
+.floatinglist {
+    display: inline-block;
+    border: 2px solid #000000;
+    margin: 3px;
+    width: 150px;
+
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
+.floatinglist a{
     text-decoration: none;
-    font-size: 17px;
+    color: #000000;
+    text-align: left;
 }
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: #4CAF50;
-    color: white;
-}
+    

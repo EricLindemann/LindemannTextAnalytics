@@ -2,15 +2,17 @@ class Analysis extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data: this.props.data};
+    
   }
+
+
 
   render() {
     return (
-      <div id='analyses'>
+      <div className = 'analysismain'>
         <TopBar />
-        <h1>
-          {this.state.data}
-        </h1>
+        <FloatingList data = {this.state.data} />
+        <FloatingList data = {this.state.data} />
       </div>
     );
   }
