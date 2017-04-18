@@ -11,33 +11,66 @@ class AnalysesController < ApplicationController
     end
 
     def show
-      word1 = ''
+      msg = Array.new      
+      word = ''
       params.each do |key, value|
-        word1 = value
+        word = value
       end
-      msg = Array.new
-      indexOfWord1 = $output.index(word1 + "\n")
-      path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
-      File.open(path).each do |line|
-          tempArray = line.split(" ")
-          if tempArray[0] == indexOfWord1.to_s
-            i = 1
-            while i < tempArray.length do
-              if tempArray[i] == ';'
-                  i += 1
-                  msg << tempArray[i]
+      words = word.split("+")
+      if words.length == 1
+        indexOfWord1 = $output.index(word + "\n")
+        path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
+        File.open(path).each do |line|
+            tempArray = line.split(" ")
+            if tempArray[0] == indexOfWord1.to_s
+              i = 1
+              while i < tempArray.length do
+                if tempArray[i] == ';'
+                    i += 1
+                    msg << tempArray[i]
+                end
+                i += 1
               end
-              i += 1
-            end        
-            break
-          end
+              break
+            end
+        end
+        i = 0
+        while i < msg.length do
+          msg[i] = $output[msg[i].to_i]
+          i += 1
+        end
       end
-      i = 0
-      while i < msg.length do
-        msg[i] = $output[msg[i].to_i]
-        i += 1
+      if words.length == 2
+        word1 = words[0]
+        word2 = words[1]
+        indexOfWord1 = $output.index(word1 + "\n")
+        indexOfWord2 = $output.index(word2 + "\n")
+        path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
+        File.open(path).each do |line|        
+            tempArray = line.split(" ")
+            if tempArray[0] == indexOfWord1.to_s
+              i = 1
+              while i < tempArray.length do
+                if tempArray[i] == ';'
+                  i += 1
+                  if tempArray[i] == indexOfWord2.to_s
+                    while i < tempArray.length do
+                      if tempArray[i] == ','
+                        i += 1
+                        msg << tempArray[i]
+                      elsif tempArray[i] == ';'
+                        break
+                      end
+                      i += 1
+                    end
+                    break
+                  end
+                end
+                i += 1
+              end
+            end                          
+        end
       end
-
       render :json => msg
     end
 #    def parseText
