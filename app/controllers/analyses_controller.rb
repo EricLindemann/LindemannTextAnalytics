@@ -2,25 +2,42 @@ class AnalysesController < ApplicationController
 
 
     def index
-      output = Array.new
-      path = File.expand_path('../../../test.txt', __FILE__)
+      $output = Array.new
+      path = File.expand_path('../../../data/testWordListFile.txt', __FILE__)
       File.open(path).each do |line|
-          output.append(line)
+          $output.append(line)
       end
-      my_hash = {:hello => "goodbye"}
-      puts output
-      @analyses = output
+      @analyses = $output
     end
 
     def show
+      word1 = ''
       params.each do |key, value|
-        puts "#{value}"
+        word1 = value
       end
       msg = Array.new
-      path = File.expand_path('../../../test.txt', __FILE__)
+      indexOfWord1 = $output.index(word1 + "\n")
+      path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
       File.open(path).each do |line|
-          msg.append(line)
+          tempArray = line.split(" ")
+          if tempArray[0] == indexOfWord1.to_s
+            i = 1
+            while i < tempArray.length do
+              if tempArray[i] == ';'
+                  i += 1
+                  msg << tempArray[i]
+              end
+              i += 1
+            end        
+            break
+          end
       end
+      i = 0
+      while i < msg.length do
+        msg[i] = $output[msg[i].to_i]
+        i += 1
+      end
+
       render :json => msg
     end
 #    def parseText
