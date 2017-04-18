@@ -13,22 +13,37 @@ class FloatingList extends React.Component {
 
   render() {
     words = this.props.data
-    return (
-      <div className = 'floatinglist'>
-        <ul>
-          {words.map((word) =>
-            <li key={word.toString()}>
-              <a 
-                value={word}
-                onClick = {this.handleChange}> 
-                {word}
-              
-              </a>
+    if (words == '') {
+      return (
+        <div className = 'floatinglist'>
+          <ul>
+            <li key={words.toString()}>
+
             </li>
-            
-          )}
-        </ul>      
-      </div>
-    );
+          
+          </ul>      
+        </div>
+      );
+    }
+    else {
+      console.log(words)
+      return (
+        <div className = 'floatinglist'>
+          <ul>
+            {words.map((word) =>
+              <li key={word.toString()}>
+                <a 
+                  value={word}
+                  onClick = {this.handleChange}> 
+                  {word}
+                
+                </a>
+              </li>
+              
+            )}
+          </ul>      
+        </div>
+      );
+    }
   }
 }
