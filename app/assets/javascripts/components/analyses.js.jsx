@@ -15,6 +15,7 @@ class Analysis extends React.Component {
 
   handleClickList1(word) {
     this.setState({word1: word})
+    this.setState({documentList: ''})
     urlWord1 = 'analyses/' + word
     $.ajax({
       url: urlWord1,
@@ -32,6 +33,8 @@ class Analysis extends React.Component {
 
 
   handleClickList2(word) {
+    this.setState({word2: word})
+
     urlWord1 = 'analyses/' + this.state.word1 + '+' + word
     $.ajax({
       url: urlWord1,
@@ -49,29 +52,25 @@ class Analysis extends React.Component {
 
 
   handleDocumentClick(documentName) {
-    this.setState({document: documentName});
-  }
-
-
-  getDocument(word2) {
-    urlWord1 = 'analyses/' + this.state.word1 + '+' + word2
+    /*urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' + documentName
     $.ajax({
       url: urlWord1,
       dataType: 'json',
       type: 'GET',
       success: function(result){
-        this.setState({documentList: result});
+        this.setState({document: result});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
 
-    });
+    });*/
+    this.setState({document: documentName})
   }
 
-  render() {
 
-    console.log(this.state.word2List)
+  render() {
+    console.log(this.state.document)
     return (
       <div className = 'analysismain'>
         <TopBar />
@@ -85,7 +84,9 @@ class Analysis extends React.Component {
           data = {this.state.documentList} 
           onWordClick = {this.handleDocumentClick}  />
         <br />          
+
         {this.state.document}
+
       </div>
     );
   }

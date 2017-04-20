@@ -2,12 +2,19 @@ class AnalysesController < ApplicationController
 
 
     def index
-      $output = Array.new
-      path = File.expand_path('../../../data/testWordListFile.txt', __FILE__)
+      $wordList = Array.new
+      $documentList = Array.new
+      path = File.expand_path('../../../data/WordListFile.txt', __FILE__)
       File.open(path).each do |line|
-          $output.append(line)
+          $wordList.append(line)
       end
-      @analyses = $output
+      path = File.expand_path('../../../data/textDocuments.txt', __FILE__)
+      file = File.open(path, "rb")
+      
+      $documentList = file.read
+      $documentList = $documentList.split("ZZZ")
+      $wordList = $wordList.map {|x| x.chomp}
+      @analyses = $wordList
     end
 
     def show
@@ -18,7 +25,7 @@ class AnalysesController < ApplicationController
       end
       words = word.split("+")
       if words.length == 1
-        indexOfWord1 = $output.index(word + "\n")
+        indexOfWord1 = $wordList.index(word)
         path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
         File.open(path).each do |line|
             tempArray = line.split(" ")
@@ -36,15 +43,15 @@ class AnalysesController < ApplicationController
         end
         i = 0
         while i < msg.length do
-          msg[i] = $output[msg[i].to_i]
+          msg[i] = $wordList[msg[i].to_i]
           i += 1
         end
       end
       if words.length == 2
         word1 = words[0]
         word2 = words[1]
-        indexOfWord1 = $output.index(word1 + "\n")
-        indexOfWord2 = $output.index(word2 + "\n")
+        indexOfWord1 = $wordList.index(word1)
+        indexOfWord2 = $wordList.index(word2)
         path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
         File.open(path).each do |line|        
             tempArray = line.split(" ")
@@ -70,32 +77,22 @@ class AnalysesController < ApplicationController
               end
             end                          
         end
+        i = 0
+        while i < msg.length do
+          msg[i] = $documentList[msg[i].to_i]
+          i += 1
+        end        
+      end
+      if words.length == 3
+        word1 = words[0]
+        word2 = words[1]
+        word3 = words[3]
+        indexOfWord1 = $wordList.index(word1)
+        indexOfWord2 = $wordList.index(word2)
+        path = File.expand_path('../../../data/test3LevelFile.txt', __FILE__)
       end
       render :json => msg
     end
-#    def parseText
-#      output = Array.new
-#      tempArray = Array.new
-#      myJson = {}
-#      path = File.expand_path('../../../test.txt', __FILE__)
-#      File.open(path).each do |line|
-#        tempArray = line.split(" ")
-#        tempWord1 = tempArray[0]
-###        i = 1
-#        while i < tempArray.length
-#          if tempArray[i] == ';'
-#              i += 1
-###              tempWord2 = tempArray[i]
-#              myJson[tempWord1] += tempWord2
-#          end
-#          if tempArray[i] == ','
-#              i += 1
-#              myJson[tempWord1][tempWord2] += tempArray[i]
-#          i++
-#          end
-#        end
-#      return myJson    
-#    
-#    end
+
 
 end

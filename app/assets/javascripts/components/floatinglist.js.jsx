@@ -26,7 +26,6 @@ class FloatingList extends React.Component {
       );
     }
     else {
-      console.log(words)
       return (
         <div className = 'floatinglist'>
           <ul>

@@ -45,8 +45,9 @@
     display: inline-block;
     border: 2px solid #000000;
     width: 32%;
-    height: 200px;
-    overflow: scroll;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
 
 }
