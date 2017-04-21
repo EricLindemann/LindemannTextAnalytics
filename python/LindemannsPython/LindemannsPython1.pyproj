@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c1bc1212-f4fe-4d22-93b8-0e11872e6487}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>LindemannsPython.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="test3LevelFile.txt" />
+    <Content Include="testWordListFile.txt" />
+    <Content Include="textDocument_0.txt" />
+    <Content Include="textDocument_1.txt" />
+    <Content Include="textDocument_10.txt" />
+    <Content Include="textDocument_11.txt" />
+    <Content Include="textDocument_12.txt" />
+    <Content Include="textDocument_13.txt" />
+    <Content Include="textDocument_14.txt" />
+    <Content Include="textDocument_15.txt" />
+    <Content Include="textDocument_16.txt" />
+    <Content Include="textDocument_17.txt" />
+    <Content Include="textDocument_18.txt" />
+    <Content Include="textDocument_19.txt" />
+    <Content Include="textDocument_2.txt" />
+    <Content Include="textDocument_20.txt" />
+    <Content Include="textDocument_21.txt" />
+    <Content Include="textDocument_22.txt" />
+    <Content Include="textDocument_23.txt" />
+    <Content Include="textDocument_24.txt" />
+    <Content Include="textDocument_25.txt" />
+    <Content Include="textDocument_26.txt" />
+    <Content Include="textDocument_27.txt" />
+    <Content Include="textDocument_28.txt" />
+    <Content Include="textDocument_29.txt" />
+    <Content Include="textDocument_3.txt" />
+    <Content Include="textDocument_30.txt" />
+    <Content Include="textDocument_31.txt" />
+    <Content Include="textDocument_32.txt" />
+    <Content Include="textDocument_33.txt" />
+    <Content Include="textDocument_34.txt" />
+    <Content Include="textDocument_35.txt" />
+    <Content Include="textDocument_36.txt" />
+    <Content Include="textDocument_37.txt" />
+    <Content Include="textDocument_38.txt" />
+    <Content Include="textDocument_39.txt" />
+    <Content Include="textDocument_4.txt" />
+    <Content Include="textDocument_40.txt" />
+    <Content Include="textDocument_41.txt" />
+    <Content Include="textDocument_42.txt" />
+    <Content Include="textDocument_43.txt" />
+    <Content Include="textDocument_44.txt" />
+    <Content Include="textDocument_45.txt" />
+    <Content Include="textDocument_46.txt" />
+    <Content Include="textDocument_47.txt" />
+    <Content Include="textDocument_48.txt" />
+    <Content Include="textDocument_49.txt" />
+    <Content Include="textDocument_5.txt" />
+    <Content Include="textDocument_50.txt" />
+    <Content Include="textDocument_6.txt" />
+    <Content Include="textDocument_7.txt" />
+    <Content Include="textDocument_8.txt" />
+    <Content Include="textDocument_9.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LindemannsPython.py" />
+    <Compile Include="..\LindemannsPython2\LindemannsPython2.py">
+      <Link>LindemannsPython2.py</Link>
+    </Compile>
+    <Compile Include="WorkWithCorpus.py" />
+    <Compile Include="WorkWithCorpus1.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
