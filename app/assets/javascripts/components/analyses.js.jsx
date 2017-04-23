@@ -12,6 +12,11 @@ class Analysis extends React.Component {
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
 
+  componentDidMount()
+  {
+    document.title = "Analysis"
+  }
+
 
   handleClickList1(word) {
     this.setState({word1: word})
@@ -76,13 +81,16 @@ class Analysis extends React.Component {
         <TopBar />
         <FloatingList 
           data = {this.state.word1List} 
-          onWordClick = {this.handleClickList1}  />
+          onWordClick = {this.handleClickList1}
+          listName = "List1"  />
         <FloatingList 
           data = {this.state.word2List} 
-          onWordClick = {this.handleClickList2}  />
+          onWordClick = {this.handleClickList2}
+          listName = "List2"  />
         <FloatingList 
           data = {this.state.documentList} 
-          onWordClick = {this.handleDocumentClick}  />
+          onWordClick = {this.handleDocumentClick}
+          listName = "List3"  />
         <br />          
 
         {this.state.document}

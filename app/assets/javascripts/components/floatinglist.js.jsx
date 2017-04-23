@@ -17,20 +17,17 @@ class FloatingList extends React.Component {
       return (
         <div className = 'floatinglist'>
           <ul>
-            <li key={words.toString()}>
 
-            </li>
-          
           </ul>      
         </div>
       );
     }
     else {
       return (
-        <div className = 'floatinglist'>
+        <div name = {this.props.listName} className = 'floatinglist'>
           <ul>
             {words.map((word) =>
-              <li key={word.toString()}>
+              <li key={word.toString().substring(0,10) + this.props.listName} name ={word.toString().substring(0,10) + this.props.listName} >
                 <a 
                   value={word}
                   onClick = {this.handleChange}> 
