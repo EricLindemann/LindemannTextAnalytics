@@ -1,0 +1,18 @@
+Steps for downloading nltk data for demo project:
+
+ 1. Start the python interpreter
+ 2. Download nltk (I’m assuming this is already done)
+ 3. Run the following:
+ 3.1. >>>  import nltk
+ 3.2. >>> nltk.download()
+ 4. A window will pop up.
+ 5. Set the download directory:
+ 5.1. C:\nltk_data
+ 6. Click the corpora tab on the downloader-app
+ 7. Highlight reuters in the identifier list
+ 8. Click the “Download” button.
+ 9. Test the installation:
+ 9.1. >>> from nltk.corpus import reuters
+ 9.2. >>> reuters.fileids()
+ 10. Data should appear
+
