@@ -1,5 +1,6 @@
 import nltk
 import numpy
+import os
 
 # import all necessary libraries
 from nltk.stem import PorterStemmer
@@ -127,7 +128,11 @@ newPairedWordsMatrix = numpy.matmul(newWordCountMatrix,newWordCountMatrix.transp
 
 #        sortedWords.pop(row)
 
-filePtr2 = open(r"wordListFile.txt", "w")
+pathToData = os.path.join(os.path.dirname(__file__), os.path.realpath('..\\..\\..\\data'))
+
+wordListFile = os.path.join(pathToData, "wordListFile.txt")
+
+filePtr2 = open(wordListFile, "w")
 
 for row in range(newNumberOfWords):
     filePtr2.write("{}\n".format(newSortedWords[row]))
@@ -136,7 +141,9 @@ filePtr2.close()
 
 #This reruns the entire analysis, but only with "good" words
 
-filePtr = open(r"test3LevelFile.txt", "w")
+threeLevelFile = os.path.join(pathToData, "threeLevelFile.txt")
+
+filePtr = open(threeLevelFile, "w")
 
 prevRow = -1
 
@@ -157,11 +164,13 @@ for row in range(newNumberOfWords):
 
 filePtr.close()
 
+textDocumentsFile = os.path.join(pathToData, "textDocuments.txt")
 
-fileStr = "textDocuments.txt"
-filePtr3 = open(fileStr, "w")
-fileStr = "textHeaders.txt"
-filePtr4 = open(fileStr, "w")
+filePtr3 = open(textDocumentsFile, "w")
+
+textHeadersFile = os.path.join(pathToData, "textHeaders.txt")
+
+filePtr4 = open(textHeadersFile, "w")
 
 docCounter = -1;
 for id in ActiveIds: 
