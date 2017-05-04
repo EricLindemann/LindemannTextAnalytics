@@ -6,6 +6,7 @@ class Analysis extends React.Component {
                   word2List: '',
                   word2: '',
                   documentList: '',
+                  documentIndexes: '',
                   document: ''};
     this.handleClickList1 = this.handleClickList1.bind(this);
     this.handleClickList2 = this.handleClickList2.bind(this);    
@@ -46,18 +47,27 @@ class Analysis extends React.Component {
       dataType: 'json',
       type: 'GET',
       success: function(result){
-        this.setState({documentList: result});
+        this.setState({documentList: result.names,
+                      documentIndexes: result.indexes
+                      });
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
-
     });
   }
 
 
   handleDocumentClick(documentName) {
-    /*urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' + documentName
+    //get index
+    var i = 0
+    for (i; i < this.state.documentList.length; i++) {
+      if (this.state.documentList[i] == documentName) {
+        break
+      }
+    }
+
+    urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' + this.state.documentIndexes[i]
     $.ajax({
       url: urlWord1,
       dataType: 'json',
@@ -69,13 +79,11 @@ class Analysis extends React.Component {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
 
-    });*/
-    this.setState({document: documentName})
+    });
   }
 
 
   render() {
-    console.log(this.state.document)
     return (
       <div className = 'analysismain'>
         <TopBar />

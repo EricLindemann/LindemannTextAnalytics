@@ -1,7 +1,6 @@
 class FloatingList extends React.Component {  
   constructor(props) {
     super(props);
-    this.state = {data: this.props.data};
     this.handleChange = this.handleChange.bind(this);   
     
   }
@@ -27,7 +26,7 @@ class FloatingList extends React.Component {
         <div name = {this.props.listName} className = 'floatinglist'>
           <ul>
             {words.map((word) =>
-              <li key={word.toString().substring(0,10) + this.props.listName} name ={word.toString().substring(0,10) + this.props.listName} >
+              <li key={word.toString() + this.props.listName} name ={word.toString() + this.props.listName} >
                 <a 
                   value={word}
                   onClick = {this.handleChange}> 

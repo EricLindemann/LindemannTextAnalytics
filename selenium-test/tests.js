@@ -40,7 +40,7 @@ function testAnalysisPage(){
     By = webdriver.By,
     until = webdriver.until;
 
-var driver = new webdriver.Builder()
+    var driver = new webdriver.Builder()
     .forBrowser('chrome')
     .build();
 
