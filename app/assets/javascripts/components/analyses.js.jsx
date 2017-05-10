@@ -58,16 +58,8 @@ class Analysis extends React.Component {
   }
 
 
-  handleDocumentClick(documentName) {
-    //get index
-    var i = 0
-    for (i; i < this.state.documentList.length; i++) {
-      if (this.state.documentList[i] == documentName) {
-        break
-      }
-    }
-
-    urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' + this.state.documentIndexes[i]
+  handleDocumentClick(documentIndex) {
+    urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' + documentIndex
     $.ajax({
       url: urlWord1,
       dataType: 'json',
@@ -98,6 +90,7 @@ class Analysis extends React.Component {
         <FloatingList 
           data = {this.state.documentList} 
           onWordClick = {this.handleDocumentClick}
+          documentIndex = {this.state.documentIndexes}
           listName = "List3"  />
         <br />          
 
