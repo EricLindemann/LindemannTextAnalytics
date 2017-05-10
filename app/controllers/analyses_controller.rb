@@ -24,6 +24,7 @@ class AnalysesController < ApplicationController
       $documentList = $documentList.split("\\**\\")
       $documentList = $documentList.map {|x| x.strip}
       $documentList = $documentList.reject { |x| x.empty? }
+      puts ($wordList[37])
       @analyses = $wordList
     end
 

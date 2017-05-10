@@ -69,3 +69,8 @@
     background-color: #ddd;
     color: black;
 }
+
+ul li a.highlight{
+    background-color: #ddd;   
+}
+
