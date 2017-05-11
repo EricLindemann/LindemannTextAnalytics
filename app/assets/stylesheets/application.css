@@ -70,7 +70,13 @@
     color: black;
 }
 
-ul li a.highlight{
+ul li a.highlightList1{
+    background-color: #ddd;   
+}
+ul li a.highlightList2{
+    background-color: #ddd;   
+}
+ul li a.highlightList3{
     background-color: #ddd;   
 }
 

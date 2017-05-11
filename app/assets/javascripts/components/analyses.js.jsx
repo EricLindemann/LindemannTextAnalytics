@@ -19,9 +19,15 @@ class Analysis extends React.Component {
   }
 
 
-  handleClickList1(word) {
+  handleClickList1(e) {
+    word = e.target.getAttribute('value');
     this.setState({word1: word})
     this.setState({documentList: ''})
+
+    $('.highlightList1').removeClass('highlightList1').addClass('default');
+    $('.highlightList2').removeClass('highlightList2').addClass('default');
+    e.target.className = 'highlightList1';
+
     urlWord1 = 'analyses/' + word
     $.ajax({
       url: urlWord1,
@@ -38,8 +44,13 @@ class Analysis extends React.Component {
   }
 
 
-  handleClickList2(word) {
+  handleClickList2(e) {
+    word = e.target.getAttribute('value');
     this.setState({word2: word})
+
+    $('.highlightList2').removeClass('highlightList2').addClass('default');
+    $('.highlightList3').removeClass('highlightList3').addClass('default');    
+    e.target.className = 'highlightList2';
 
     urlWord1 = 'analyses/' + this.state.word1 + '+' + word
     $.ajax({
@@ -58,8 +69,12 @@ class Analysis extends React.Component {
   }
 
 
-  handleDocumentClick(documentIndex) {
-    urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' + documentIndex
+  handleDocumentClick(e) {
+
+    $('.highlightList3').removeClass('highlightList3').addClass('default'); 
+    e.target.className = 'highlightList3';  
+
+    urlWord1 = 'analyses/' + this.state.word1 + '+' + this.state.word2 + '+' +     e.target.getAttribute('data');
     $.ajax({
       url: urlWord1,
       dataType: 'json',

@@ -8,26 +8,7 @@ class FloatingList extends React.Component {
   }
 
   handleChange(e) {
-    //console.log(this)
-    //e.preventDefault();
-    //if (this.state.active != 'a'){
-      //this.state.active.target.className = ''
-    //}
-    for (var ref in this.refs) {
-      this.refs[ref].className = 'default';
-    }
-    console.log(this.props.listName)
- 
-    e.target.className = 'highlight';
-    this.setState({active: true})
-    //console.log(e.target.getAttribute('class'));
-    //this.setState({active: e});
-
-    if (this.props.listName === "List3"){
-      this.props.onWordClick(e.target.getAttribute('data'));
-    } else {
-      this.props.onWordClick(e.target.getAttribute('value'));
-    }
+    this.props.onWordClick(e);
   }
 
   render() {
@@ -52,7 +33,6 @@ class FloatingList extends React.Component {
                   data = {this.props.documentIndex[index]}
                   className = 'default'
                   //make ref callback this is legacy
-                  ref = {this.props.documentIndex[index]}
                   value={word}
                   onClick = {this.handleChange}> 
                   {word}
@@ -62,7 +42,6 @@ class FloatingList extends React.Component {
                 <a
                   className = 'default'
                   //make ref callback this is legacy
-                  ref = {word}
                   value={word}
                   onClick = {this.handleChange}> 
                   {word}
